@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Latinoamérica Escribe | Convocatoria Oficial · Artes Multicap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#e7c36b;--gold-bright:#ffd98c;--text:#f4f4f4;--muted:#b9c1d9;--card:rgba(255,255,255,.06);--radius:22px;--wa:#25D366}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:140px}
+body{font-family:'Inter',sans-serif;background:#000;color:var(--text);font-size:15px;line-height:1.3;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+#lang-bar{position:fixed;top:0;left:0;right:0;z-index:1100;background:#000;border-bottom:2px solid var(--gold);padding:8px 10px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+#lang-bar button{background:transparent;border:1px solid rgba(231,195,107,.4);border-radius:8px;color:var(--gold-bright);cursor:pointer;padding:5px 10px;display:flex;align-items:center;gap:6px;font:600 .72rem 'Inter',sans-serif;text-transform:uppercase;transition:.3s}
+#lang-bar button:hover{background:rgba(231,195,107,.15)}
+#lang-bar button.active{background:linear-gradient(135deg,var(--gold),#b8941f);color:#111}
+#lang-bar img{width:22px;height:16px;border-radius:3px;object-fit:cover}
+header{position:fixed;top:44px;width:100%;background:rgba(0,0,0,.88);backdrop-filter:blur(20px);border-bottom:1px solid rgba(231,195,107,.15);z-index:1000}
+nav{max-width:1250px;margin:auto;padding:8px 20px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.logo-img{height:60px;width:auto;filter:brightness(1.35) drop-shadow(0 0 15px rgba(231,195,107,.7))}
+nav ul{display:flex;gap:8px;list-style:none;flex-wrap:wrap;justify-content:flex-end}
+nav ul li a{color:var(--gold-bright);text-decoration:none;font-size:.75rem;font-weight:600;padding:8px 14px;border-radius:50px;border:1px solid rgba(231,195,107,.4);background:rgba(231,195,107,.05);transition:.3s;display:inline-block;white-space:nowrap}
+nav ul li a:hover{background:rgba(231,195,107,.18);transform:translateY(-2px)}
+section{max-width:1200px;margin:auto;padding:26px 20px}
+.btn{padding:12px 24px;border-radius:50px;text-decoration:none;font-weight:600;font-size:.88rem;display:inline-block;transition:.3s;text-align:center}
+.primary{background:var(--gold);color:#111;box-shadow:0 0 20px rgba(231,195,107,.5)}
+.primary:hover{transform:translateY(-3px)}
+.secondary{border:1px solid rgba(255,255,255,.2);color:#fff}
+.secondary:hover{background:#fff;color:#111}
+.title{text-align:center;margin-bottom:20px}
+.title h2{font-family:"Cormorant Garamond",serif;font-size:2.4rem;color:var(--gold);text-shadow:0 0 20px rgba(231,195,107,.5)}
+.title p{color:var(--muted);max-width:700px;margin:6px auto 0}
+.page-top{padding-top:170px}
+.convocatoria-hero{background:linear-gradient(160deg,rgba(231,195,107,.08),rgba(255,255,255,.03));border:1.5px solid rgba(231,195,107,.35);border-radius:var(--radius);padding:34px 26px;text-align:center;margin-bottom:18px}
+.conv-badge{display:inline-block;font-size:.68rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);border:1px solid rgba(231,195,107,.45);padding:.4rem 1rem;border-radius:50px;margin-bottom:.9rem}
+.convocatoria-hero h1{font-family:"Cormorant Garamond",serif;font-size:2.8rem;color:var(--gold);line-height:1.05;margin-bottom:8px;text-shadow:0 0 20px rgba(231,195,107,.5)}
+.conv-lema{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.25rem;color:var(--gold-bright);margin-bottom:10px}
+.convocatoria-hero p{color:var(--muted);max-width:780px;margin:0 auto}
+.conv-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.conv-col{display:flex;flex-direction:column;gap:16px}
+.conv-block{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:20px 18px;position:relative;overflow:hidden}
+.conv-block::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.55}
+.conv-block h3{font-family:"Cormorant Garamond",serif;font-size:1.45rem;color:var(--gold);margin-bottom:10px;padding-bottom:.4rem;border-bottom:1px solid rgba(231,195,107,.2)}
+.conv-block h3::before{content:'✦ ';color:var(--gold-bright);font-size:.9rem}
+.conv-block h4{font-family:"Cormorant Garamond",serif;font-size:1.1rem;color:var(--gold-bright);margin:.7rem 0 .4rem}
+.conv-block p{color:var(--muted);font-size:.88rem;margin-bottom:.5rem}
+.conv-block p:last-child{margin-bottom:0}
+strong{color:var(--gold-bright);font-weight:600}
+.conv-list{list-style:none;margin:0 0 .4rem}
+.conv-list li{padding:.3rem 0;font-size:.86rem;display:flex;gap:.5rem;border-bottom:1px solid rgba(255,255,255,.05)}
+.conv-list li:last-child{border-bottom:none}
+.conv-list li::before{content:'—';color:var(--gold);font-weight:700}
+.conv-list.check li::before{content:'✓';color:var(--gold-bright)}
+.conv-list.cross li::before{content:'✕';color:#c98b8b}
+.conv-premio-item{background:rgba(231,195,107,.05);border-left:2px solid var(--gold);border-radius:10px;padding:.65rem .8rem;margin-bottom:.5rem}
+.conv-premio-item h4{margin-top:0;font-size:1rem;color:var(--gold)}
+.conv-cronograma{list-style:none}
+.conv-cronograma li{display:grid;grid-template-columns:1fr auto;gap:10px;padding:.5rem .65rem;font-size:.86rem;border-bottom:1px solid rgba(255,255,255,.05)}
+.conv-cronograma li:nth-child(odd){background:rgba(231,195,107,.03);border-radius:8px}
+.fecha{color:var(--gold-bright);font-weight:600;text-align:right}
+.conv-paso{display:flex;gap:12px;background:rgba(231,195,107,.04);border:1px solid rgba(231,195,107,.18);border-radius:14px;padding:12px 13px;margin-bottom:10px}
+.paso-num{min-width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--gold),#ffd98c);color:#111;font-weight:700}
+.paso-content{flex:1;min-width:0}
+.paso-content h4{margin-top:0}
+.ia-paso{background:rgba(231,195,107,.08);border:1.5px solid rgba(231,195,107,.4);border-radius:12px;padding:10px 12px;margin-top:.5rem}
+.ia-paso h5{font-family:"Cormorant Garamond",serif;font-size:1rem;color:var(--gold-bright);margin-bottom:.35rem}
+.ia-paso h5::before{content:'⚠ '}
+.ia-paso p{font-size:.82rem;color:var(--text)}
+.conv-archivo{background:rgba(0,0,0,.4);border:1px dashed rgba(231,195,107,.35);border-radius:12px;padding:.65rem .85rem;margin-top:.5rem}
+.archivo-tag{display:inline-block;font-size:.62rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);border:1px solid rgba(231,195,107,.4);padding:.2rem .55rem;border-radius:50px;margin-bottom:.35rem}
+.archivo-nombre{display:block;font-family:'Courier New',monospace;font-size:.76rem;color:var(--gold-bright);background:rgba(231,195,107,.08);padding:.3rem .6rem;border-radius:8px;margin-top:.4rem;word-break:break-all}
+.conv-aviso{background:rgba(231,195,107,.06);border-left:3px solid var(--gold);border-radius:12px;padding:.75rem .9rem;font-size:.84rem;color:var(--muted);margin-top:10px}
+.conv-cta{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.cta{background:linear-gradient(135deg,#0a0a0a,#000);border:1px solid rgba(231,195,107,.25);border-radius:26px;padding:36px 24px;text-align:center}
+.cta h2{font-family:"Cormorant Garamond",serif;font-size:2.2rem;color:var(--gold);margin-bottom:10px}
+.cta p{color:var(--muted);margin-bottom:4px}
+.cta a{color:var(--gold-bright);text-decoration:none}
+footer{padding:20px;text-align:center;color:var(--muted);font-size:.82rem}
+.footer-tagline{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1rem;color:var(--gold-bright);margin-bottom:6px}
+.wa-float{position:fixed;bottom:22px;right:22px;z-index:999;width:56px;height:56px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 0 25px rgba(37,211,102,.6)}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+.fade{opacity:0;transform:translateY(30px);transition:.9s}
+.fade.show{opacity:1;transform:none}
+#juradoModal{position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.96);display:none;align-items:center;justify-content:center;width:100vw;height:100vh;height:100dvh}
+#juradoModal.show{display:flex}
+#juradoModal img{max-width:100vw;max-height:100vh;max-height:100dvh;width:auto;height:auto;object-fit:contain;display:block}
+#juradoClose{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:12px;width:46px;height:46px;border-radius:50%;border:2px solid var(--gold);background:rgba(0,0,0,.75);color:var(--gold-bright);font-size:1.5rem;line-height:1;cursor:pointer;z-index:2;box-shadow:0 0 20px rgba(231,195,107,.5)}
+#juradoClose:hover{background:var(--gold);color:#111}
+#juradoMissing{display:none;color:var(--gold-bright);text-align:center;padding:24px;max-width:480px}
+body.modal-open{overflow:hidden}
+@media(max-width:900px){.conv-grid{grid-template-columns:1fr}.convocatoria-hero h1{font-size:2.1rem}.page-top{padding-top:200px}}
+@media(max-width:600px){nav{justify-content:center}nav ul{justify-content:center}.conv-cronograma li{grid-template-columns:1fr;gap:2px}.fecha{text-align:left}.title h2{font-size:1.8rem}.convocatoria-hero h1{font-size:1.7rem}.page-top{padding-top:230px}}
+</style>
+</head>
+<body>
+
+<div id="lang-bar">
+  <button id="lang-es" class="active" onclick="setLang('es')"><img src="https://flagcdn.com/w40/es.png" alt="ES"><span>Español</span></button>
+  <button id="lang-en" onclick="setLang('en')"><img src="https://flagcdn.com/w40/gb.png" alt="EN"><span>English</span></button>
+  <button id="lang-fr" onclick="setLang('fr')"><img src="https://flagcdn.com/w40/fr.png" alt="FR"><span>Français</span></button>
+  <button id="lang-pt" onclick="setLang('pt')"><img src="https://flagcdn.com/w40/br.png" alt="PT"><span>Português</span></button>
+</div>
+
+<header>
+<nav>
+<a href="#inicio"><img src="https://i.postimg.cc/KjNyqCH5/Chat-GPT-Image-16-sept-2026-12-21-49-p-m-removebg-preview.png" alt="Artes Multicap Editorial" class="logo-img"></a>
+<ul>
+<li><a href="#" class="js-open-jury" data-i18n="nav.jurados">Jurados</a></li>
+<li><a href="#contacto" data-i18n="nav.contacto">Contacto</a></li>
+</ul>
+</nav>
+</header>
+
+<section id="inicio" class="page-top">
+<div class="convocatoria-hero">
+<span class="conv-badge" data-i18n="conv.badge">Convocatoria cerrada</span>
+<h1 data-i18n="conv.h3">LATINOAMÉRICA ESCRIBE</h1>
+<p class="conv-lema" data-i18n="conv.lema">Una obra. Un ganador. Un libro para el mundo.</p>
+<p data-i18n-html="conv.sub"><em>Una historia. Dos idiomas. Una oportunidad para publicar y llevar tu voz más allá de las fronteras.</em></p>
+<div class="conv-cta">
+<a href="#" class="btn primary js-open-jury" data-i18n="conv.btn.jury">Ver jurados</a>
+</div>
+</div>
+<div class="title" style="margin-top:22px">
+<h2 data-i18n="conv.title">Convocatoria Oficial</h2>
+<p data-i18n="conv.desc">Concurso Internacional de Creación Literaria y Publicación "Latinoamérica Escribe"</p>
+</div>
+</section>
+
+<section class="fade">
+<div class="conv-grid">
+
+<div class="conv-col">
+
+<div class="conv-block" id="bases">
+<h3 data-i18n="conv.c1.h">¿Qué es "Latinoamérica Escribe"?</h3>
+<p data-i18n-html="conv.c1.p1">Es un concurso internacional de creación literaria y publicación organizado por la <strong>Fundación Artes Multicap (Colombia)</strong>.</p>
+<p data-i18n-html="conv.c1.p2">Se seleccionará <strong>una única obra ganadora</strong>, de <strong>tema y género libres</strong>. El ganador recibirá gratuitamente el <strong>Plan Premium Global</strong>, valorado en <strong>$4.100.000 COP</strong>.</p>
+<p data-i18n-html="conv.c1.p3"><strong>Participar es completamente GRATIS.</strong></p>
+</div>
+
+<div class="conv-block">
+<h3 data-i18n="conv.c2.h">¿Quién puede participar?</h3>
+<ul class="conv-list check" data-i18n-list="conv.c2.list1">
+<li>Personas naturales mayores de 18 años.</li>
+<li>Autores de cualquier país de Latinoamérica.</li>
+<li>Personas de cualquier nacionalidad que residan en un país latinoamericano.</li>
+<li>Autores que presenten una obra original, inédita y de su autoría.</li>
+<li>Participantes que presenten su obra en idioma español.</li>
+</ul>
+<p data-i18n-html="conv.c2.paises"><strong>Países convocados:</strong> Colombia, México, Argentina, Chile, Perú, Ecuador, Bolivia, Paraguay, Uruguay, Brasil, Venezuela, Costa Rica, Panamá, Nicaragua, Honduras, Guatemala, El Salvador, República Dominicana, Cuba y Puerto Rico.</p>
+<h4 data-i18n="conv.c2.np">No podrán participar</h4>
+<ul class="conv-list cross" data-i18n-list="conv.c2.list2">
+<li>Obras publicadas comercialmente con anterioridad.</li>
+<li>Obras ganadoras de otro concurso cuando comprometan derechos necesarios.</li>
+<li>Personas vinculadas directamente con la organización.</li>
+<li>Integrantes del jurado.</li>
+<li>Personas que intervengan directamente en la evaluación.</li>
+</ul>
+</div>
+
+<div class="conv-block">
+<h3 data-i18n="conv.c3.h">Tema y género: libres</h3>
+<p data-i18n="conv.c3.p1">La convocatoria no establece un tema específico. La obra puede pertenecer a cualquier género literario, narrativo, artístico, cultural, académico o de no ficción, siempre que pueda constituirse editorialmente como un proyecto de libro.</p>
+<p data-i18n="conv.c3.p2">Entre otros, podrán presentarse:</p>
+<ul class="conv-list" data-i18n-list="conv.c3.list">
+<li>Novela, novela corta, cuento y relatos</li>
+<li>Poesía</li>
+<li>Ensayo, investigación y crónica</li>
+<li>Memorias, biografía y testimonio</li>
+<li>Literatura infantil, juvenil o para adultos</li>
+<li>Obras de carácter cultural, artístico, académico o científico</li>
+<li>Otros géneros narrativos, literarios o expositivos</li>
+</ul>
+<p data-i18n-html="conv.c3.p4">La obra deberá ser <strong>original, inédita y de autoría del participante</strong>.</p>
+</div>
+
+<div class="conv-block">
+<h3 data-i18n="conv.c4.h">Requisitos de formato</h3>
+<ul class="conv-list check" data-i18n-list="conv.c4.list">
+<li>Tamaño carta, con márgenes de 2,5 cm por los cuatro lados</li>
+<li>Times New Roman 12, interlineado 1,5</li>
+<li>Título en Times New Roman 14</li>
+<li>Tabla de contenido obligatoria</li>
+<li>Extensión: 20.000 a 30.000 palabras</li>
+<li>Idioma: español</li>
+<li>Formato de envío: Word (.docx) únicamente</li>
+<li>Seudónimo obligatorio</li>
+</ul>
+</div>
+
+<div class="conv-block">
+<h3 data-i18n="conv.c5.h">Valor referencial del premio</h3>
+<p data-i18n-html="conv.c5.p1">El Plan Premium Global otorgado a la obra ganadora representa una inversión editorial estimada de <strong>$4.100.000 COP</strong>.</p>
+<p data-i18n="conv.c5.p2">Este valor es referencial y corresponde al conjunto de servicios editoriales que recibe gratuitamente la persona ganadora.</p>
+<p data-i18n-html="conv.c5.p3">El ganador <strong>no recibe este valor en dinero</strong>. Recibe gratuitamente los servicios editoriales descritos en las bases, más el 50% de las regalías netas por ventas.</p>
+</div>
+
+<div class="conv-block">
+<h3 data-i18n="conv.c6.h">Lo que conservas como autor</h3>
+<p data-i18n-html="conv.c6.p1"><strong>TÚ SIGUES SIENDO EL DUEÑO DE TU OBRA.</strong></p>
+<p data-i18n-html="conv.c6.p2">El contrato de edición no transfiere en ningún momento el derecho de autor, conforme al <strong>artículo 119 de la Ley 23 de 1982</strong>. Conservas todos tus derechos morales y patrimoniales.</p>
+<p data-i18n-html="conv.c6.p3">En caso de cualquier duda, se aplicará el principio <strong>«in dubio pro auctore»</strong>, que ordena interpretar siempre a favor del autor.</p>
+</div>
+
+<div class="conv-block" id="cronograma">
+<h3 data-i18n="conv.c7.h">Cronograma</h3>
+<ul class="conv-cronograma" data-i18n-cron="conv.c7.list">
+<li><span class="etapa">Lanzamiento de la convocatoria</span><span class="fecha">25 de septiembre de 2026</span></li>
+<li><span class="etapa">Recepción de obras</span><span class="fecha">25 sep — 26 oct 2026</span></li>
+<li><span class="etapa">Verificación de requisitos formales</span><span class="fecha">27 oct — 5 nov 2026</span></li>
+<li><span class="etapa">Evaluación del jurado</span><span class="fecha">6 — 20 nov 2026</span></li>
+<li><span class="etapa">Anuncio del ganador</span><span class="fecha">27 de noviembre de 2026</span></li>
+<li><span class="etapa">Firma del acuerdo editorial</span><span class="fecha">30 nov — 10 dic 2026</span></li>
+<li><span class="etapa">Proceso editorial y traducción</span><span class="fecha">Dic 2026 — Ene 2027</span></li>
+<li><span class="etapa">Publicación oficial del libro</span><span class="fecha">Enero de 2027</span></li>
+</ul>
+<div class="conv-aviso" data-i18n-html="conv.c7.nota"><strong>Nota de transparencia:</strong> El proceso editorial bilingüe completo requiere entre 3 y 4 meses por obra para garantizar la calidad.</div>
+</div>
+
+<div class="conv-block">
+<h3 data-i18n="conv.c8.h">Compromiso del ganador</h3>
+<p data-i18n-html="conv.c8.p">El ganador tendrá un plazo de <strong>3 días calendario</strong> para entregar la documentación solicitada. Si no cumple, será descalificado y se seleccionará al siguiente participante.</p>
+</div>
+
+</div>
+
+<div class="conv-col">
+
+<div class="conv-block" id="premio">
+<h3 data-i18n="conv.d1.h">El gran premio: Plan Premium Global</h3>
+<p data-i18n-html="conv.d1.p">El ganador recibirá el <strong>Plan Premium Global</strong>, <strong>sin pagar absolutamente nada por estos servicios</strong>.</p>
+
+<div class="conv-premio-item">
+<h4 data-i18n="conv.d1.i1.h">Proceso editorial completo</h4>
+<ul class="conv-list" data-i18n-list="conv.d1.i1.list">
+<li>Lectura y valoración editorial</li>
+<li>Corrección ortotipográfica y de estilo</li>
+<li>Preparación del manuscrito</li>
+<li>Diagramación y maquetación interior</li>
+<li>Diseño profesional de portada</li>
+<li>Diseño de contraportada y mockups</li>
+</ul>
+</div>
+<div class="conv-premio-item">
+<h4 data-i18n="conv.d1.i2.h">Ilustraciones</h4>
+<p data-i18n="conv.d1.i2.p">Si la obra lo requiere, la organización diseña las ilustraciones como parte del premio.</p>
+</div>
+<div class="conv-premio-item">
+<h4 data-i18n="conv.d1.i3.h">Traducción al inglés</h4>
+<p data-i18n="conv.d1.i3.p">Traducción profesional de la obra completa al inglés.</p>
+</div>
+<div class="conv-premio-item">
+<h4 data-i18n="conv.d1.i4.h">Publicación en seis formatos bilingües</h4>
+<ul class="conv-list" data-i18n-list="conv.d1.i4.list">
+<li>eBook en español</li>
+<li>eBook en inglés</li>
+<li>Tapa blanda en español</li>
+<li>Tapa blanda en inglés</li>
+<li>Tapa dura en español</li>
+<li>Tapa dura en inglés</li>
+</ul>
+</div>
+<div class="conv-premio-item">
+<h4 data-i18n="conv.d1.i5.h">Gestión de ISBN</h4>
+<p data-i18n="conv.d1.i5.p">Solicitud y gestión de los ISBN correspondientes a cada formato.</p>
+</div>
+<div class="conv-premio-item">
+<h4 data-i18n="conv.d1.i6.h">Distribución internacional</h4>
+<p data-i18n="conv.d1.i6.p">Disponible a nivel mundial.</p>
+</div>
+<div class="conv-premio-item">
+<h4 data-i18n="conv.d1.i7.h">Ejemplares del autor</h4>
+<p data-i18n-html="conv.d1.i7.p"><strong>3 ejemplares impresos de cortesía en tapa blanda.</strong></p>
+</div>
+<div class="conv-premio-item">
+<h4 data-i18n="conv.d1.i8.h">Promoción y difusión ampliada</h4>
+<ul class="conv-list" data-i18n-list="conv.d1.i8.list">
+<li>Publicaciones en redes sociales</li>
+<li>Presentación del autor</li>
+<li>Entrevista publicada</li>
+<li>Difusión nacional e internacional</li>
+<li>Enlaces de venta y promoción</li>
+<li>Kit de comunicación y lanzamiento</li>
+<li>Posicionamiento en Amazon</li>
+</ul>
+</div>
+<div class="conv-premio-item">
+<h4 data-i18n="conv.d1.i9.h">Regalías por ventas</h4>
+<ul class="conv-list" data-i18n-list="conv.d1.i9.list">
+<li>50% de las regalías netas</li>
+<li>Reporte semestral de ventas</li>
+</ul>
+</div>
+<div class="conv-premio-item">
+<h4 data-i18n="conv.d1.i10.h">Diploma digital</h4>
+<p data-i18n="conv.d1.i10.p">Diploma digital oficial de ganador.</p>
+</div>
+</div>
+
+<div class="conv-block" id="participar">
+<h3 data-i18n="conv.pasos.h">Cómo participar</h3>
+
+<div class="conv-paso">
+<div class="paso-num">1</div>
+<div class="paso-content">
+<h4 data-i18n="conv.p1.h">Prepara tu obra</h4>
+<p data-i18n-html="conv.p1.p">Debe ser <strong>original, inédita y de tu autoría</strong>. Debes presentarla <strong>bajo seudónimo</strong> (obligatorio para garantizar la imparcialidad del jurado).</p>
+<div class="ia-paso">
+<h5 data-i18n="conv.ia.h">Uso de Inteligencia Artificial</h5>
+<p data-i18n-html="conv.ia.p1">Es <strong>obligatorio declarar</strong> cualquier uso de IA. Se permite como herramienta de apoyo con revisión del autor. No se aceptan obras generadas íntegramente por IA.</p>
+<p data-i18n-html="conv.ia.p4">El incumplimiento implica <strong>descalificación automática</strong>.</p>
+</div>
+</div>
+</div>
+
+<div class="conv-paso">
+<div class="paso-num">2</div>
+<div class="paso-content">
+<h4 data-i18n="conv.p2.h">Prepara tus dos archivos Word</h4>
+<div class="conv-archivo">
+<span class="archivo-tag" data-i18n="conv.p2.a1.tag">Archivo 1</span>
+<strong data-i18n="conv.p2.a1.n">Manuscrito</strong>
+<ul class="conv-list" data-i18n-list="conv.p2.a1.list">
+<li>Formato: Word (.docx) únicamente</li>
+<li>Bajo seudónimo, sin datos personales</li>
+<li>Tamaño carta, márgenes de 2,5 cm</li>
+<li>Tabla de contenido obligatoria</li>
+</ul>
+<span class="archivo-nombre">MANUSCRITO_SEUDONIMO_TITULO.docx</span>
+</div>
+<div class="conv-archivo">
+<span class="archivo-tag" data-i18n="conv.p2.a2.tag">Archivo 2</span>
+<strong data-i18n="conv.p2.a2.n">Presentación</strong>
+<ul class="conv-list" data-i18n-list="conv.p2.a2.list">
+<li>Formato: Word (.docx) únicamente</li>
+<li>Con tus datos personales completos</li>
+<li>Declaración expresa de uso de IA</li>
+</ul>
+<span class="archivo-nombre">PRESENTACION_SEUDONIMO.docx</span>
+</div>
+</div>
+</div>
+
+<div class="conv-paso">
+<div class="paso-num">3</div>
+<div class="paso-content">
+<h4 data-i18n="conv.p3.h">Envía tus archivos</h4>
+<p data-i18n-html="conv.p3.p1"><strong>Correo:</strong> artesmulticap2024@gmail.com</p>
+<p data-i18n-html="conv.p3.p2"><strong>Asunto del correo:</strong></p>
+<span class="archivo-nombre">CONCURSO LATINOAMÉRICA ESCRIBE - SEUDONIMO</span>
+</div>
+</div>
+
+<div class="conv-aviso" data-i18n-html="conv.p3.aviso"><strong>Importante:</strong> No se aceptan archivos PDF. Solo Word (.docx). <strong>Toda obra que use IA debe declararlo expresamente</strong>. Obras sin declaración podrán ser descalificadas.</div>
+</div>
+
+</div>
+</div>
+
+</section>
+
+<section id="contacto" class="fade">
+<div class="cta">
+<h2 data-i18n="cont.title">¿Tienes dudas sobre la convocatoria?</h2>
+<p><strong data-i18n="cont.email_fundacion">Correo fundación:</strong> <a href="mailto:artesmulticap2024@gmail.com">artesmulticap2024@gmail.com</a></p>
+<p data-i18n-html="cont.wa">WhatsApp: <a href="https://wa.me/573113555949" target="_blank">311 355 5949</a></p>
+<p data-i18n="cont.country">Colombia</p>
+</div>
+</section>
+
+<footer>
+<p class="footer-tagline" data-i18n="foot.tag">Publicación editorial • Coedición • Distribución Internacional</p>
+<p data-i18n="foot.copy">© 2026 Fundación Artes Multicap. Todos los derechos reservados.</p>
+</footer>
+
+<a href="https://wa.me/573113555949" class="wa-float" target="_blank" aria-label="WhatsApp">
+<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- VISOR DE JURADOS: sube tu foto como "jurados.jpg" junto a este archivo (o cambia el src) -->
+<div id="juradoModal" role="dialog" aria-modal="true" aria-label="Jurados">
+<button id="juradoClose" type="button" aria-label="Cerrar">&times;</button>
+<img id="juradoImg" src="jurados.jpg" alt="Jurados de la convocatoria Latinoamérica Escribe">
+<p id="juradoMissing" data-i18n="jur.missing">No se encontró la foto del jurado. Sube el archivo jurados.jpg junto a esta página.</p>
+</div>
+
+<script>
+/* El español es el contenido base del HTML. Aquí van las demás lenguas.
+   Para FR y PT: copia desde tu página original las entradas "conv.*", "nav.*", "cont.*" y "foot.*"
+   y pégalas dentro de fr:{} y pt:{} (las claves son idénticas). */
+const i18n = {
+  en: {
+    "nav.premio":"The prize","nav.bases":"Rules","nav.cronograma":"Schedule","nav.participar":"How to participate","nav.contacto":"Contact",
+    "nav.jurados":"Jury","conv.btn.jury":"View jury",
+    "jur.missing":"Jury photo not found. Upload the file jurados.jpg next to this page.",
+    "conv.title":"Official Call","conv.desc":"International Literary Creation and Publication Contest \"Latin America Writes\"",
+    "conv.badge":"Call closed","conv.h3":"LATIN AMERICA WRITES","conv.lema":"One work. One winner. One book for the world.",
+    "conv.sub":"<em>One story. Two languages. An opportunity to publish and take your voice beyond borders.</em>",
+    "conv.c1.h":"What is \"Latin America Writes\"?",
+    "conv.c1.p1":"It is an international literary creation and publication contest organized by the <strong>Artes Multicap Foundation (Colombia)</strong>.",
+    "conv.c1.p2":"<strong>One single winning work</strong> will be selected, with <strong>free theme and genre</strong>. The winning author will receive free of charge the <strong>Global Premium Plan</strong>, valued at <strong>$4,100,000 COP</strong>.",
+    "conv.c1.p3":"<strong>Participation is completely FREE.</strong>",
+    "conv.c2.h":"Who can participate?",
+    "conv.c2.list1":["Natural persons over 18 years of age.","Authors from any Latin American country.","People of any nationality residing in a Latin American country.","Authors presenting an original, unpublished work of their authorship.","Participants presenting their work in Spanish."],
+    "conv.c2.paises":"<strong>Invited countries:</strong> Colombia, Mexico, Argentina, Chile, Peru, Ecuador, Bolivia, Paraguay, Uruguay, Brazil, Venezuela, Costa Rica, Panama, Nicaragua, Honduras, Guatemala, El Salvador, Dominican Republic, Cuba and Puerto Rico.",
+    "conv.c2.np":"Cannot participate",
+    "conv.c2.list2":["Works previously published commercially.","Works that have won another contest when the conditions of that contest compromise the rights necessary to participate.","Persons directly linked to the organization of the contest.","Members of the jury.","Persons directly involved in the evaluation of the works."],
+    "conv.c3.h":"Theme and genre: free",
+    "conv.c3.p1":"The call does not establish a specific theme. The work may belong to any literary, narrative, artistic, cultural, academic or non-fiction genre, as long as it can be editorially constituted as a book project.",
+    "conv.c3.p2":"Among others, the following may be submitted:",
+    "conv.c3.list":["Novel, short novel, short story and tales","Poetry","Essay, research and chronicle","Memoirs, biography and testimony","Children's, youth or adult literature","Works of cultural, artistic, academic or scientific nature","Other narrative, literary or expository genres"],
+    "conv.c3.p4":"The work must be <strong>original, unpublished and of the participant's authorship</strong>.",
+    "conv.c4.h":"Format requirements",
+    "conv.c4.list":["Letter size, with 2.5 cm margins on all four sides","Times New Roman 12, line spacing 1.5","Title in Times New Roman 14","Mandatory table of contents","Length: 20,000 to 30,000 words","Language: Spanish","Submission format: Word (.docx) only","Mandatory pseudonym"],
+    "conv.c5.h":"Referential value of the prize",
+    "conv.c5.p1":"The Global Premium Plan awarded to the winning work represents an estimated editorial investment of <strong>$4,100,000 COP</strong>.",
+    "conv.c5.p2":"This value is referential and corresponds to the set of editorial services that the winning person receives free of charge.",
+    "conv.c5.p3":"The winner <strong>does not receive this value in money</strong>. They receive free of charge the editorial services described in the rules, plus 50% of net royalties from sales.",
+    "conv.c6.h":"What you keep as an author",
+    "conv.c6.p1":"<strong>YOU REMAIN THE OWNER OF YOUR WORK.</strong>",
+    "conv.c6.p2":"The publishing contract does not transfer copyright at any time, in accordance with <strong>article 119 of Law 23 of 1982</strong>. You keep all your moral and economic rights.",
+    "conv.c6.p3":"In case of any doubt, the principle <strong>«in dubio pro auctore»</strong> will apply, which orders to always interpret in favor of the author.",
+    "conv.c7.h":"Schedule",
+    "conv.c7.list":[["Call launch","September 25, 2026"],["Submission of works","Sep 25 — Oct 26, 2026"],["Verification of formal requirements","Oct 27 — Nov 5, 2026"],["Jury evaluation","Nov 6 — 20, 2026"],["Winner announcement","November 27, 2026"],["Editorial agreement signing","Nov 30 — Dec 10, 2026"],["Editorial process and translation","Dec 2026 — Jan 2027"],["Official book publication","January 2027"]],
+    "conv.c7.nota":"<strong>Transparency note:</strong> The complete bilingual editorial process requires between 3 and 4 months per work to guarantee quality.",
+    "conv.c8.h":"Winner's commitment",
+    "conv.c8.p":"The winner will have a period of <strong>3 calendar days</strong> to deliver the requested documentation. If they do not meet the deadline, they will be disqualified and the next participant will be selected.",
+    "conv.d1.h":"The grand prize: Global Premium Plan",
+    "conv.d1.p":"The winner will receive the <strong>Global Premium Plan</strong>, <strong>without paying absolutely anything for these services</strong>.",
+    "conv.d1.i1.h":"Complete editorial process",
+    "conv.d1.i1.list":["Editorial reading and evaluation","Orthotypographic and style correction","Manuscript preparation","Interior layout and design","Professional cover design","Back cover design and mockups"],
+    "conv.d1.i2.h":"Illustrations","conv.d1.i2.p":"If the work requires it, the organization designs the illustrations as part of the prize.",
+    "conv.d1.i3.h":"English translation","conv.d1.i3.p":"Professional translation of the entire work into English.",
+    "conv.d1.i4.h":"Publication in six bilingual formats",
+    "conv.d1.i4.list":["eBook in Spanish","eBook in English","Paperback in Spanish","Paperback in English","Hardcover in Spanish","Hardcover in English"],
+    "conv.d1.i5.h":"ISBN management","conv.d1.i5.p":"Application and management of the ISBNs corresponding to each format.",
+    "conv.d1.i6.h":"International distribution","conv.d1.i6.p":"Available worldwide.",
+    "conv.d1.i7.h":"Author copies","conv.d1.i7.p":"<strong>3 complimentary printed paperback copies.</strong>",
+    "conv.d1.i8.h":"Expanded promotion and dissemination",
+    "conv.d1.i8.list":["Publications on social media","Author presentation","Published interview","National and international dissemination","Sales links and promotion","Communication and launch kit","Amazon positioning"],
+    "conv.d1.i9.h":"Sales royalties","conv.d1.i9.list":["50% of net royalties","Semi-annual sales report"],
+    "conv.d1.i10.h":"Digital diploma","conv.d1.i10.p":"Official digital diploma of winner.",
+    "conv.pasos.h":"How to participate",
+    "conv.p1.h":"Prepare your work",
+    "conv.p1.p":"It must be <strong>original, unpublished and of your authorship</strong>. You must present it <strong>under a pseudonym</strong> (mandatory to guarantee the jury's impartiality).",
+    "conv.ia.h":"Use of Artificial Intelligence",
+    "conv.ia.p1":"It is <strong>mandatory to declare</strong> any use of AI. It is allowed as a support tool with the author's review. Works generated entirely by AI are not accepted.",
+    "conv.ia.p4":"Failure to comply implies <strong>automatic disqualification</strong>.",
+    "conv.p2.h":"Prepare your two Word files",
+    "conv.p2.a1.tag":"File 1","conv.p2.a1.n":"Manuscript",
+    "conv.p2.a1.list":["Format: Word (.docx) only","Under pseudonym, without personal data","Letter size, 2.5 cm margins","Mandatory table of contents"],
+    "conv.p2.a2.tag":"File 2","conv.p2.a2.n":"Presentation",
+    "conv.p2.a2.list":["Format: Word (.docx) only","With your complete personal data","Express declaration of AI use"],
+    "conv.p3.h":"Send your files","conv.p3.p1":"<strong>Email:</strong> artesmulticap2024@gmail.com","conv.p3.p2":"<strong>Email subject:</strong>",
+    "conv.p3.aviso":"<strong>Important:</strong> PDF files are not accepted. Only Word (.docx). <strong>Any work that uses AI must expressly declare it</strong>. Works without declaration may be disqualified.",
+    "conv.cta1":"Participate via WhatsApp","conv.cta2":"Send my work by email",
+    "cont.title":"Questions about the call?","cont.email_fundacion":"Foundation email:",
+    "cont.wa":"WhatsApp: <a href=\"https://wa.me/573113555949\" target=\"_blank\">311 355 5949</a>","cont.country":"Colombia",
+    "foot.tag":"Editorial publishing • Co-edition • International distribution","foot.copy":"© 2026 Artes Multicap Foundation. All rights reserved."
+  },
+  fr: {},
+  pt: {}
+};
+
+/* Guarda el español original la primera vez */
+const ES = {};
+function snapshotSpanish(){
+  document.querySelectorAll("[data-i18n]").forEach(el=>{ ES[el.dataset.i18n] = el.textContent; });
+  document.querySelectorAll("[data-i18n-html]").forEach(el=>{ ES[el.dataset.i18nHtml] = el.innerHTML; });
+  document.querySelectorAll("[data-i18n-list]").forEach(ul=>{ ES[ul.dataset.i18nList] = [...ul.querySelectorAll("li")].map(li=>li.textContent); });
+  document.querySelectorAll("[data-i18n-cron]").forEach(ul=>{
+    ES[ul.dataset.i18nCron] = [...ul.querySelectorAll("li")].map(li=>[li.querySelector(".etapa").textContent, li.querySelector(".fecha").textContent]);
+  });
+}
+
+function setLang(lang){
+  const t = lang === "es" ? ES : Object.assign({}, ES, i18n[lang] || {});
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const v = t[el.dataset.i18n]; if(v !== undefined) el.textContent = v;
+  });
+  document.querySelectorAll("[data-i18n-html]").forEach(el=>{
+    const v = t[el.dataset.i18nHtml]; if(v !== undefined) el.innerHTML = v;
+  });
+  document.querySelectorAll("[data-i18n-list]").forEach(ul=>{
+    const items = t[ul.dataset.i18nList];
+    if(Array.isArray(items)) ul.querySelectorAll("li").forEach((li,i)=>{ if(items[i] !== undefined) li.textContent = items[i]; });
+  });
+  document.querySelectorAll("[data-i18n-cron]").forEach(ul=>{
+    const items = t[ul.dataset.i18nCron];
+    if(Array.isArray(items)) ul.querySelectorAll("li").forEach((li,i)=>{
+      if(items[i]){ li.querySelector(".etapa").textContent = items[i][0]; li.querySelector(".fecha").textContent = items[i][1]; }
+    });
+  });
+
+  document.querySelectorAll("#lang-bar button").forEach(b=>b.classList.remove("active"));
+  const btn = document.getElementById("lang-"+lang); if(btn) btn.classList.add("active");
+  try{ localStorage.setItem("preferred-lang", lang); }catch(e){}
+}
+
+document.addEventListener("DOMContentLoaded", ()=>{
+  snapshotSpanish();
+  let saved = "es";
+  try{ saved = localStorage.getItem("preferred-lang") || "es"; }catch(e){}
+  if(saved !== "es") setLang(saved);
+
+  const io = new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("show"); io.unobserve(e.target); } });
+  },{threshold:0, rootMargin:"0px 0px -40px 0px"});
+  document.querySelectorAll(".fade").forEach(el=>io.observe(el));
+
+  /* Visor de jurados */
+  const modal = document.getElementById("juradoModal");
+  const img = document.getElementById("juradoImg");
+  const missing = document.getElementById("juradoMissing");
+  img.addEventListener("error", ()=>{ img.style.display = "none"; missing.style.display = "block"; });
+  img.addEventListener("load", ()=>{ img.style.display = "block"; missing.style.display = "none"; });
+  function openJury(e){
+    if(e) e.preventDefault();
+    modal.classList.add("show");
+    document.body.classList.add("modal-open");
+  }
+  function closeJury(){
+    modal.classList.remove("show");
+    document.body.classList.remove("modal-open");
+  }
+  document.querySelectorAll(".js-open-jury").forEach(b=>b.addEventListener("click", openJury));
+  document.getElementById("juradoClose").addEventListener("click", closeJury);
+  modal.addEventListener("click", e=>{ if(e.target === modal) closeJury(); });
+  document.addEventListener("keydown", e=>{ if(e.key === "Escape") closeJury(); });
+});
+</script>
+</body>
+</html>
