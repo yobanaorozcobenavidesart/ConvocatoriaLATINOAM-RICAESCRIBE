@@ -108,8 +108,10 @@ footer{padding:20px;text-align:center;color:var(--muted);font-size:.82rem}
 #juradoModal{position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.97);display:none;overflow-y:auto;padding:calc(70px + env(safe-area-inset-top,0px)) 16px 40px}
 #juradoModal.show{display:block}
 .jur-wrap{max-width:1300px;margin:auto}
-.jur-wrap h2{font-family:"Cormorant Garamond",serif;font-size:2.2rem;color:var(--gold);text-align:left;margin-bottom:4px}
-.jur-wrap p{color:var(--muted);text-align:justify;font-size:.88rem;margin-bottom:18px}
+.jur-wrap h2{font-family:"Cormorant Garamond",serif;font-size:clamp(1.7rem,5.2vw,2.6rem);line-height:1.1;color:var(--gold);text-align:left;margin-bottom:6px;text-shadow:0 0 20px rgba(231,195,107,.4)}
+.jur-sub{font-family:"Cormorant Garamond",serif;font-size:clamp(1.05rem,3.2vw,1.4rem);font-weight:600;line-height:1.2;color:var(--gold-bright);text-align:left;margin-bottom:14px}
+.jur-wrap p{color:var(--muted);text-align:justify;font-size:clamp(.88rem,2.4vw,.98rem);line-height:1.5;margin-bottom:12px}
+.jur-wrap #jurGrid{margin-top:14px}
 .jur-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px}
 .jur-thumb{background:#000;border:1px solid rgba(231,195,107,.35);border-radius:14px;padding:0;cursor:zoom-in;overflow:hidden;transition:.3s}
 .jur-thumb:hover{transform:translateY(-4px);box-shadow:0 0 22px rgba(231,195,107,.45)}
@@ -128,6 +130,15 @@ footer{padding:20px;text-align:center;color:var(--muted);font-size:.82rem}
 #jlPrev{left:10px;top:50%;transform:translateY(-50%)}
 #jlNext{right:10px;top:50%;transform:translateY(-50%)}
 #jlCount{position:absolute;bottom:calc(12px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);color:var(--gold-bright);font-size:.8rem;background:rgba(0,0,0,.7);padding:4px 12px;border-radius:50px}
+.jur-item{display:flex;flex-direction:column;gap:10px}
+.jur-thumb{width:100%}
+.jur-link,.jl-profile{display:block;text-align:center;text-decoration:none;font-weight:600;font-size:.88rem;padding:11px 16px;border-radius:50px;background:var(--gold);color:#111;box-shadow:0 0 18px rgba(231,195,107,.35);transition:.3s}
+.jur-link:hover,.jl-profile:hover{transform:translateY(-2px);background:var(--gold-bright)}
+.jl-profile{position:absolute;left:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:3;padding:10px 16px}
+.hero-links{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:18px}
+.hl-btn{display:inline-block;text-decoration:none;font-weight:600;font-size:clamp(.74rem,2.2vw,.88rem);color:#111;background:var(--gold);padding:10px 18px;border-radius:50px;box-shadow:0 0 18px rgba(231,195,107,.4);transition:.3s;text-align:center}
+.hl-btn:hover{transform:translateY(-3px);background:var(--gold-bright)}
+@media(max-width:600px){.hero-links{flex-direction:column;align-items:stretch}}
 body.modal-open{overflow:hidden}
 @media(max-width:900px){.conv-grid{grid-template-columns:1fr}.convocatoria-hero h1{font-size:2.1rem}.page-top{padding-top:200px}}
 @media(max-width:600px){nav{justify-content:center}nav ul{justify-content:center}.conv-cronograma li{grid-template-columns:1fr;gap:2px}.fecha{text-align:left}.title h2{font-size:1.8rem}.convocatoria-hero h1{font-size:1.7rem}.page-top{padding-top:230px}}
@@ -154,6 +165,11 @@ body.modal-open{overflow:hidden}
 
 <section id="inicio" class="page-top">
 <div class="convocatoria-hero">
+<div class="hero-links" role="navigation" aria-label="Sitios hermanos">
+<a href="https://editorialartesmulticap.netlify.app/" class="hl-btn" data-i18n="hl.editorial">← Artes Multicap Editorial</a>
+<a href="https://fundacion-artes-multicap.netlify.app/" class="hl-btn" data-i18n="hl.fundacion">Fundación Artes Multicap</a>
+<a href="https://explorandomuseosyartelatinoamericano.netlify.app/" class="hl-btn" data-i18n="hl.revistas">Revistas sin costo</a>
+</div>
 <span class="conv-badge" data-i18n="conv.badge">Convocatoria cerrada</span>
 <h1 data-i18n="conv.h3">LATINOAMÉRICA ESCRIBE</h1>
 <p class="conv-lema" data-i18n="conv.lema">Una obra. Un ganador. Un libro para el mundo.</p>
@@ -436,7 +452,12 @@ body.modal-open{overflow:hidden}
 <div id="juradoModal" role="dialog" aria-modal="true" aria-label="Jurados">
 <button id="juradoClose" type="button" aria-label="Cerrar">&times;</button>
 <div class="jur-wrap">
-<h2 data-i18n="nav.jurados">Jurados</h2>
+<span class="pf-badge" data-i18n="nav.jurados">Jurados</span>
+<h2 data-i18n-html="jur.t1">CINCO MIRADAS, UNA PASIÓN POR LAS LETRAS</h2>
+<h3 class="jur-sub" data-i18n-html="jur.t2">PRESENTAMOS AL JURADO INTERNACIONAL DE LATINOAMÉRICA ESCRIBE 2026</h3>
+<p data-i18n-html="jur.p1">En el marco del lanzamiento editorial de Artes Multicap Editorial, iniciativa de la Fundación Artes Multicap, nos enorgullece presentar a los cinco destacados jurados que tendrán la importante responsabilidad de evaluar las obras participantes en el concurso internacional LATINOAMÉRICA ESCRIBE 2026.</p>
+<p data-i18n-html="jur.p2">Este selecto equipo está integrado por profesionales de la escritura, la literatura y el ámbito cultural, cuyas experiencias, conocimientos y trayectorias representan un valioso aporte al fortalecimiento de las letras y al reconocimiento del talento literario.</p>
+<p data-i18n-html="jur.p3">Contamos con la participación de un jurado de España, cuya presencia amplía la mirada iberoamericana de este certamen y fortalece los vínculos culturales entre España y Latinoamérica.</p>
 <p data-i18n-html="jur.hint">Toca la imagen de cada jurado para verla ampliada. Dentro puedes acercar con zoom (rueda del ratón, pellizco o doble clic) para leer los detalles.</p>
 <div class="jur-grid" id="jurGrid"></div>
 </div>
@@ -446,6 +467,7 @@ body.modal-open{overflow:hidden}
 <button class="jl-btn" id="jlPrev" type="button" aria-label="Anterior">&#10094;</button>
 <button class="jl-btn" id="jlNext" type="button" aria-label="Siguiente">&#10095;</button>
 <img id="jlImg" src="" alt="" draggable="false">
+<a id="jlProfile" class="jl-profile" href="#" target="_blank" rel="noopener noreferrer">Ver perfil</a>
 <span id="jlCount"></span>
 <div class="jl-zoom"><button id="jlZout" type="button" aria-label="Alejar">&minus;</button><button id="jlZin" type="button" aria-label="Acercar">+</button><button id="jlZr" type="button" aria-label="Restablecer">&#8634;</button></div>
 </div>
@@ -586,15 +608,37 @@ document.addEventListener("DOMContentLoaded", ()=>{
   let cur = 0, S = 1, X = 0, Y = 0;
   const MAXS = 6;
   const grid = document.getElementById("jurGrid");
+  const PERFIL = [
+    "https://jhonathangiusseppe.com/",
+    "https://www.instagram.com/p.j.gelves/",
+    "https://martintroncoso.wordpress.com/",
+    "https://orcid.org/0009-0001-5954-9853",
+    "https://portafolioprofesionalyobanaorozcobena.netlify.app/"
+  ];
+  const profileLinks = [];
+  function perfilTxt(){ return document.documentElement.lang === "en" ? "View profile" : "Ver perfil"; }
+  function updProfileLabels(){
+    profileLinks.forEach(a=>{ a.textContent = perfilTxt(); });
+    const jp = document.getElementById("jlProfile"); if(jp) jp.textContent = perfilTxt();
+  }
   JUR.forEach((j,i)=>{
+    const item = document.createElement("div"); item.className = "jur-item";
     const b = document.createElement("button");
     b.type = "button"; b.className = "jur-thumb"; b.setAttribute("aria-label","Ampliar "+j[1]);
     const im = document.createElement("img");
     im.src = j[0]; im.alt = j[1];
     b.appendChild(im);
     b.addEventListener("click", ()=>openLight(i));
-    grid.appendChild(b);
+    const a = document.createElement("a");
+    a.className = "jur-link"; a.href = PERFIL[i]; a.target = "_blank"; a.rel = "noopener noreferrer";
+    a.setAttribute("aria-label", perfilTxt()+": "+j[1]);
+    profileLinks.push(a);
+    item.appendChild(b); item.appendChild(a);
+    grid.appendChild(item);
   });
+  const _prevSetLang = window.setLang;
+  window.setLang = function(l){ _prevSetLang(l); updProfileLabels(); };
+  updProfileLabels();
   function apply(){ jlImg.style.transform = "translate("+X+"px,"+Y+"px) scale("+S+")"; jlImg.style.cursor = S>1 ? "grab" : "zoom-in"; }
   function clampPan(){
     const vw = light.clientWidth, vh = light.clientHeight, iw = jlImg.offsetWidth, ih = jlImg.offsetHeight;
@@ -614,6 +658,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     resetZ();
     jlImg.src = JUR[cur][0]; jlImg.alt = JUR[cur][1];
     jlCount.textContent = (cur+1)+" / "+JUR.length;
+    document.getElementById("jlProfile").href = PERFIL[cur];
   }
   function openLight(i){ cur = i; showLight(); light.classList.add("show"); }
   function closeLight(){ light.classList.remove("show"); }
@@ -629,7 +674,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
   const ptrs = new Map();
   let lastDist = 0, startX = 0, startY = 0, moved = false, lastTap = 0, pan0 = {x:0,y:0};
   light.addEventListener("pointerdown", e=>{
-    if(e.target.closest(".jl-btn,.jl-zoom")) return;
+    if(e.target.closest(".jl-btn,.jl-zoom,.jl-profile")) return;
     ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY});
     if(ptrs.size === 1){ startX = e.clientX; startY = e.clientY; moved = false; pan0 = {x:X,y:Y}; }
     if(ptrs.size === 2){ const q=[...ptrs.values()]; lastDist = Math.hypot(q[0].x-q[1].x,q[0].y-q[1].y); moved = true; }
@@ -854,6 +899,14 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 <script>
 (function(){
+i18n.en["hl.editorial"]="← Artes Multicap Editorial";
+i18n.en["hl.fundacion"]="Artes Multicap Foundation";
+i18n.en["hl.revistas"]="Free magazines";
+i18n.en["jur.t1"]="FIVE PERSPECTIVES, ONE PASSION FOR LETTERS";
+i18n.en["jur.t2"]="INTRODUCING THE INTERNATIONAL JURY OF LATIN AMERICA WRITES 2026";
+i18n.en["jur.p1"]="As part of the editorial launch of Artes Multicap Editorial, an initiative of the Artes Multicap Foundation, we are proud to present the five distinguished jurors who will have the important responsibility of evaluating the works entered in the international contest LATIN AMERICA WRITES 2026.";
+i18n.en["jur.p2"]="This select team is made up of professionals in writing, literature and the cultural field, whose experience, knowledge and careers are a valuable contribution to strengthening letters and recognizing literary talent.";
+i18n.en["jur.p3"]="We are joined by a juror from Spain, whose presence broadens the Ibero-American outlook of this contest and strengthens the cultural ties between Spain and Latin America.";
 i18n.en["jur.hint"]="Tap a juror's image to enlarge it. Inside you can zoom in (mouse wheel, pinch or double click) to read the details.";
 Object.assign(i18n.en, {"pf.r1": "<strong>Mandatory pseudonym:</strong> submission of the work under a registered pseudonym.", "pf.r2": "<strong>Title of the work:</strong> identification of the manuscript's title.", "pf.r3": "<strong>Length:</strong> compliance with the established range of 20,000 to 30,000 words.", "pf.r4": "<strong>Language:</strong> submission of the work in Spanish.", "pf.r5": "<strong>Table of contents:</strong> inclusion of the mandatory index or table of contents.", "pf.r6": "<strong>Manuscript anonymity:</strong> absence of real names, ID numbers, emails, phone numbers or social media handles that could reveal the author's identity.", "pf.r7": "<strong>Invited country:</strong> participation of authors from Latin American countries.", "pf.r8": "<strong>Submission within the deadline:</strong> submission of the work between September 25 and October 26, 2026.", "pf.r9": "<strong>Use of artificial intelligence:</strong> compliance with the condition that the work was not generated entirely by AI, according to the authorship criterion established in the call.", "pf.r10": "<strong>Submission format:</strong> submission of the documents exclusively in Word (.docx) format.", "pf.r11": "<strong>Two files and naming:</strong> delivery of the two required documents, manuscript and presentation, with the established file names.", "pf.r12": "<strong>Email and subject:</strong> submission to the contest's official email with the requested subject.", "pf.r13": "<strong>Page size and margins:</strong> letter size setup with 2.5 cm margins on all four sides.", "pf.r14": "<strong>Typography and line spacing:</strong> use of Times New Roman 12, 1.5 line spacing and title in Times New Roman 14.", "pf.r15": "<strong>Personal data:</strong> inclusion of the complete personal information in the presentation document.", "pf.r16": "<strong>AI use declaration:</strong> inclusion of the express declaration on the use or non-use of artificial intelligence tools in the presentation document.", "pf.r17": "<strong>Legal age:</strong> compliance with the condition of being a natural person over 18 years of age.", "pf.r18": "<strong>Originality and unpublished status:</strong> submission of an original, unpublished work with no prior commercial publication.", "pf.r19": "<strong>Original authorship:</strong> verification of the work's authorship and absence of verified plagiarism.", "pf.r20": "<strong>Rights over the work:</strong> confirmation that the work is not a winner of another contest that compromises its rights.", "pf.r21": "<strong>No conflicts of interest:</strong> verification that the participant has no ties to the organization, the jury or the evaluation process.", "pf.c1": "Originality and own proposal", "pf.c2": "Quality of writing and command of language", "pf.c3": "Structure, coherence and development", "pf.c4": "Depth and treatment of the theme", "pf.c5": "Contribution and impact on readers", "pf.c6": "Potential for editorial development", "pf.ct": "<strong>Total</strong>", "ov.back": "← Back to the call", "pf.badge": "Official statement", "pf.h": "Results of the first verification phase", "pf.sub": "International Literary Creation and Publication Contest “Latin America Writes” 2026.", "pf.p1": "The Artes Multicap Foundation, together with Artes Multicap Editorial, deeply thanks the <strong>158 registered authors</strong> for their participation, as well as for the interest, trust and commitment placed in this cultural and literary initiative, which seeks to promote creation, recognize talent and give visibility to new voices from Latin America.", "pf.p2": "Once the review and prior verification process was completed, we are pleased to report that <strong>five (5) works met all 21 requirements</strong> set out in the rules, reaching 100% compliance and approval to advance to the second phase: the literary evaluation by the jury.", "pf.p3": "This first stage was aimed at verifying the participation conditions and the authorship aspects established in the call. The final literary assessment belongs to the next phase and will be the jury's responsibility.", "pf.s1": "registered authors", "pf.s2": "works with 21 of 21 requirements", "pf.n3": "Nov 27", "pf.s3": "winner announcement", "pf.h1": "1. What did the first verification phase involve?", "pf.h1p": "The Editorial Committee individually reviewed the manuscripts and presentation documents, taking into account the conditions set out in the contest rules. The 21 aspects verified were:", "pf.res": "<strong>Result:</strong> the five qualifying works met 21 of 21 requirements, reaching 100% compliance with the verified conditions.", "pf.h2": "2. Why did only five works advance?", "pf.h2a": "The rules of the call were established to guarantee equal conditions of participation. For this reason, the requirements were applied uniformly to all participants, without exceptions.", "pf.h2b": "The organization recognizes the effort, time and dedication each author invested in preparing their proposal. However, to preserve transparency, fairness and compliance with the announced conditions, only works that met all the established requirements could advance.", "pf.h2c": "This procedure seeks to honor the commitment made to all participants and to ensure that the works reach the jury's evaluation under the conditions set from the beginning of the call.", "pf.h3": "3. The five works advancing to the jury's evaluation", "pf.h3a": "These are the five literary proposals that successfully passed the first verification phase:", "pf.h3b": "This selection brings together proposals from Colombia, Argentina and Uruguay, and reflects the diversity of genres and literary expressions present in this international call. We congratulate the authors whose works continue in the process and recognize the value of every proposal submitted.", "pf.h4": "4. Second phase: literary evaluation by the jury", "pf.h4a": "The five qualifying works have been made available to the jurors for reading, analysis and literary assessment. The official evaluation will follow the six criteria in the evaluation document given to the jurors, with a maximum score of 100 points:", "pf.h4b": "The assessment will take into account the genre and proposal of each manuscript. The winning work will be chosen by the jury, based on a comparative reading of the works and the application of the official criteria. During this stage the personal identity of the participants will remain confidential, respecting the principle of impartiality that guides the contest.", "pf.note1": "Meeting the first-phase requirements allows a work to advance to the literary evaluation, but it does not represent an early selection of the winning work.", "pf.h5": "5. Results announcement date", "pf.h5a": "The winning work of the “Latin America Writes” 2026 Contest will be announced on <strong>November 27, 2026</strong> through the official channels of the Artes Multicap Foundation and Artes Multicap Editorial.", "pf.h6": "6. Our gratitude", "pf.h6a": "To the 158 participating authors, our sincere thanks for trusting this call and sharing their creations. Every proposal represents an expression of talent, imagination and commitment to the written word. To the five participants whose works advanced to the second phase, we wish you every success in this stage.", "pf.h6b": "We also extend our recognition to the jurors who, with their experience, career and literary knowledge, voluntarily contribute to this cultural project. We reaffirm our commitment to promoting Latin American literature, the transparency of our processes and the creation of spaces that allow new literary voices to be discovered, recognized and projected.", "pf.note2": "<em>Literature knows no borders: every work is a voice that deserves to be read and every author, a story that deserves to be heard.</em>", "pf.sig": "<strong>ARTES MULTICAP FOUNDATION · ARTES MULTICAP EDITORIAL</strong><br>Colombia", "win.badge": "Official result", "win.h": "Contest winner", "nav.pf": "First phase", "nav.win": "Winner"});
 /* ===== EDITA AQUÍ EL 27 DE NOVIEMBRE: pon publicado:true y llena los datos del ganador/a ===== */
